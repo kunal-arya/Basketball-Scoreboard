@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Scoreboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer ></script>
+</head>
+<body>
+    <main class="container">
+        <div class="column">
+            <h2 class="team-heading">Home</h2>
+            <div class="scoreboard">
+                <h2 id="scoreA">0</h2>
+            </div>
+            <div class="btn-score">
+                <button class="btn" onclick="plus1aFn()">+1</button>
+                <button class="btn" onclick="plus2aFn()">+2</button>
+                <button class="btn" onclick="plus3aFn()">+3</button>
+            </div>
+        </div>
+        <div class="column column-btn">
+            <button class="newGame" onclick="newGame()">New Game</button>
+        </div>
+        <div class="column">
+            <h2 class="team-heading">Guest</h2>
+            <div class="scoreboard">
+                <h2 id="scoreB">0</h2>
+            </div>  
+            <div class="btn-score">
+                <button class="btn" onclick="plus1bFn()">+1</button>
+                <button class="btn" onclick="plus2bFn()">+2</button>
+                <button class="btn" onclick="plus3bFn()">+3</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

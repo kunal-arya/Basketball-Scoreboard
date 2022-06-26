@@ -1,0 +1,108 @@
+
+
+@font-face {
+    font-family: 'cursed_timer_ulil';
+    src: url('./font/cursedtimerulil-aznm-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --primary-color:#EDE9FE;
+    --secondary-color:#4C1D95;
+}
+
+body{
+    background-color: var(--secondary-color);    
+    font-family: 'cursed_timer_ulil';
+    text-align: center;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* ==========
+Typography
+============= */
+
+.team-heading{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 4.5rem;
+    margin-bottom: 0.25em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+button{
+    font-family: 'cursed_timer_ulil';
+    font-size: 2rem;
+}
+
+.scoreboard h2{
+    color: var(--primary-color);
+    
+    font-size: 10rem;
+}
+
+/* ============
+Layout
+=============== */
+
+.scoreboard{
+    background-color: #080001;
+    width: 300px;
+    height: 200px;
+    margin: 2em;
+    padding: 1.5em;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.scoreboard h2{
+    transform: translateY(10px);
+
+}
+
+.btn{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 3px solid var(--primary-color);
+    padding: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus{
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.column-btn{
+    align-self: center;
+}
+
+.newGame{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 0.5em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newGame:hover,
+.newGame:focus{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+}
