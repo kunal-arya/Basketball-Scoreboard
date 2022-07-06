@@ -1,47 +1,97 @@
+class Scoreboard {
+    constructor(scoreA, scoreB){
+        this.scoreA = scoreA;
+        this.scoreB = scoreB;
+        this.newGame();
+    }
+
+    newGame(){
+        this.a = 0;
+        this.b = 0;
+        this.updateDisplay();
+    }
+
+    team(teamName){
+        this.teamName = teamName;
+    }
+
+    btnClick(points){
+        this.score = 0;
+        this.score += points;
+        if(this.teamName === 'a'){
+            this.a += this.score;
+        } else {
+            this.b += this.score;
+        }
+        this.updateDisplay();
+    }
+
+    twoABtn(){
+        this.a = this.a + 2;
+    }
+
+    threeABtn(){
+        this.a = this.a + 3;
+    }
+
+    updateDisplay(){
+        this.scoreA.innerText = this.a;
+        this.scoreB.innerText = this.b;
+    }
+
+    winnerHighlight(){
+
+    }
+}
+
+
 /* Pending tasks -
   1) Highlight the winner score
   2) Add a few more counters like (eg-period, fouls, time)*/
 
 // Defining all the variavles
 const scoreA = document.getElementById('scoreA');
-const scoreb = document.getElementById(`scoreB`);
-let aScore = 0;
-let bScore = 0;
+const scoreB = document.getElementById(`scoreB`);
+const oneABtn = document.getElementById('1a');
+const twoABtn = document.getElementById('2a');
+const threeABtn = document.getElementById('3a');
+const oneBBtn = document.getElementById('1b');
+const twoBBtn = document.getElementById('2b');
+const threeBBtn = document.getElementById('3b');
+const newGame = document.getElementById('new-game');
 
-function newGame(){     
-    bScore = 0;
-    aScore = 0;
-    scoreA.innerText = 0;
-    scoreb.innerText = 0;
-}   
+const scoreboard = new Scoreboard( scoreA , scoreB);
 
-function plus1aFn(){
-    aScore++;
-    scoreA.innerText = aScore;
-}
+oneABtn.addEventListener('click' , () => {
+    scoreboard.team('a');
+    scoreboard.btnClick(1);
+});
 
-function plus2aFn(){
-    aScore += 2;
-    scoreA.innerText = aScore;
-}
+oneBBtn.addEventListener('click', () => {
+    scoreboard.team('b');
+    scoreboard.btnClick(1);
+})
 
-function plus3aFn(){
-    aScore += 3;
-    scoreA.innerText = aScore;
-}
+twoABtn.addEventListener('click', () => {
+    scoreboard.team('a');
+    scoreboard.btnClick(2);
+});
 
-function plus1bFn(){
-    bScore++;
-    scoreb.innerText = bScore;
-}
+twoBBtn.addEventListener('click', () => {
+    scoreboard.team('b');
+    scoreboard.btnClick(2);
+})
 
-function plus2bFn(){
-    bScore += 2;
-    scoreb.innerText = bScore;
-}
+threeABtn.addEventListener('click', () => {
+    scoreboard.team('a');
+    scoreboard.btnClick(3);
+})
 
-function plus3bFn(){
-    bScore += 3;
-    scoreb.innerText = bScore;
-}
+threeBBtn.addEventListener('click', () => {
+    scoreboard.team('b');
+    scoreboard.btnClick(3);
+})
 
+newGame.addEventListener('click', () => {
+    scoreboard.newGame();
+})
