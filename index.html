@@ -13,31 +13,35 @@
 </head>
 <body>
     <main class="container">
-        <div class="column">
+        <h1 class="main-heading">Basketball Scoreboard</h1>
+        <div class="column column-btn">
+            <button class="newGame" id="new-game">New Game</button>
+        </div>
+        <div class="timecounter"></div>
+        <div class="column scoreboardA">
             <h2 class="team-heading">Home</h2>
-            <div class="scoreboard">
+            <div class="scoreboard ">
                 <h2 id="scoreA">0</h2>
             </div>
             <div class="btn-score">
-                <button class="btn" onclick="plus1aFn()">+1</button>
-                <button class="btn" onclick="plus2aFn()">+2</button>
-                <button class="btn" onclick="plus3aFn()">+3</button>
+                <button class="btn" id="1a">+1</button>
+                <button class="btn" id="2a">+2</button>
+                <button class="btn" id="3a">+3</button>
             </div>
         </div>
-        <div class="column column-btn">
-            <button class="newGame" onclick="newGame()">New Game</button>
-        </div>
-        <div class="column">
+
+        <div class="column scoreboardB">
             <h2 class="team-heading">Guest</h2>
-            <div class="scoreboard">
+            <div class="scoreboard ">
                 <h2 id="scoreB">0</h2>
             </div>  
             <div class="btn-score">
-                <button class="btn" onclick="plus1bFn()">+1</button>
-                <button class="btn" onclick="plus2bFn()">+2</button>
-                <button class="btn" onclick="plus3bFn()">+3</button>
+                <button class="btn" id="1b">+1</button>
+                <button class="btn" id="2b">+2</button>
+                <button class="btn" id="3b">+3</button>
             </div>
         </div>
     </main>
+    <footer class="footer"></footer>
 </body>
 </html>
