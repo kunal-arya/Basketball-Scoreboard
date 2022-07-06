@@ -26,21 +26,23 @@ class Scoreboard {
         this.updateDisplay();
     }
 
-    twoABtn(){
-        this.a = this.a + 2;
-    }
-
-    threeABtn(){
-        this.a = this.a + 3;
-    }
-
     updateDisplay(){
         this.scoreA.innerText = this.a;
         this.scoreB.innerText = this.b;
+        this.winnerHighlight()
     }
 
     winnerHighlight(){
-
+        if(this.a > this.b){
+            this.scoreA.classList.add("winner-highlight");
+            this.scoreB.classList.remove("winner-highlight");
+        } else if(this.a < this.b) {
+            this.scoreB.classList.add("winner-highlight");
+            this.scoreA.classList.remove("winner-highlight");
+        } else {
+            this.scoreA.classList.remove("winner-highlight");
+            this.scoreB.classList.remove("winner-highlight");
+        }
     }
 }
 
@@ -59,6 +61,8 @@ const oneBBtn = document.getElementById('1b');
 const twoBBtn = document.getElementById('2b');
 const threeBBtn = document.getElementById('3b');
 const newGame = document.getElementById('new-game');
+const winnerHighlight = document.querySelector('#winnerHighlight');
+
 
 const scoreboard = new Scoreboard( scoreA , scoreB);
 
