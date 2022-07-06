@@ -1,7 +1,13 @@
+/* Pending tasks -
+   Add a few more counters like (eg-period, fouls, time)
+   */
+
+
 class Scoreboard {
-    constructor(scoreA, scoreB){
+    constructor(scoreA, scoreB, timer){
         this.scoreA = scoreA;
         this.scoreB = scoreB;
+        this.countdown = timer;
         this.newGame();
     }
 
@@ -9,7 +15,13 @@ class Scoreboard {
         this.a = 0;
         this.b = 0;
         this.updateDisplay();
+        this.startCountdown();
     }
+
+    startCountdown(){
+        this.countdown.innerText = '10:00';
+    }
+
 
     team(teamName){
         this.teamName = teamName;
@@ -47,11 +59,8 @@ class Scoreboard {
 }
 
 
-/* Pending tasks -
-  1) Highlight the winner score
-  2) Add a few more counters like (eg-period, fouls, time)*/
 
-// Defining all the variavles
+// Defining all the variables
 const scoreA = document.getElementById('scoreA');
 const scoreB = document.getElementById(`scoreB`);
 const oneABtn = document.getElementById('1a');
@@ -62,9 +71,9 @@ const twoBBtn = document.getElementById('2b');
 const threeBBtn = document.getElementById('3b');
 const newGame = document.getElementById('new-game');
 const winnerHighlight = document.querySelector('#winnerHighlight');
+const timer = document.querySelector('[data-timer]');
 
-
-const scoreboard = new Scoreboard( scoreA , scoreB);
+const scoreboard = new Scoreboard( scoreA , scoreB,timer);
 
 oneABtn.addEventListener('click' , () => {
     scoreboard.team('a');
@@ -98,4 +107,34 @@ threeBBtn.addEventListener('click', () => {
 
 newGame.addEventListener('click', () => {
     scoreboard.newGame();
+    setTimer();
 })
+
+// timer in JS
+
+function setTimer(){
+  const minutes = 10;
+  let time = minutes * 60;
+  let min = 0;
+  let sec = 0;
+  let countInterval = setInterval(countdownTimer, 1000);
+
+    function countdownTimer(){
+        min = Math.floor(time / 60);
+        sec = time % 60;
+        if(sec < 10){
+            sec = '0' + sec;
+        }
+        if(min < 0 && sec < 0){
+            return;
+        }
+        timer.innerText = `${min}:${sec}`
+        time--;
+
+        if(min == 0 && sec == 0){
+            clearInterval(countInterval);
+        }
+    }
+}
+
+

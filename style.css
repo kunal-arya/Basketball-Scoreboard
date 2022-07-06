@@ -148,4 +148,24 @@ Layout
         grid-column: 3;
     }
 
+    .timer-container {
+        grid-column: 2/-2;
+    }
+
+}
+
+.timer-container {
+    height: 60px;
+    background-color: var(--primary-color);
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+    width: 300px;
+    padding: 1em;
+}
+
+.timer {
+    font-size: 2.5em;
+    width: 100%;
 }
